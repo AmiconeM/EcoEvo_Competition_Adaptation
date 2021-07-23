@@ -15,9 +15,16 @@ The full set of data will be output as .RData file named as chosen in line 28.
 Data are stored as nested list. for example:
 - allStrains[[1]] contains the #genotypes of all the simulated populations with the first given U, over time.
 allStrains[[1]][2,13] is the number of genotypes of population 2 at generation 13.
-- allAlphas[[2]][[4]] contains all the phenotypes that emerged in population 4 simulated with the second given U.
-- allAlphas[[2]][[4]][[20]] contains only the alpha traits of genotype 20. 
-- allHistory[[3]][[10]][[20]] contains the mutation history of genotype 20 of population 10 evolved under the third given U condition.
+
+The allDyn list contains the genotypes present in each generation and the corresponding abundance. For example:
+- allDyn[[3]][[x]][[t]][1,] contains the IDs of the genotypes in population x at generation t, run with the 3rd given U value.
+- allDyn[[3]][[x]][[t]][2,] contains their abundances.
+
+With the genotypes IDs one can further get their alpha values: 
+- allAlphas[[2]][[4]] contains all the phenotypes that emerged in population 4 simulated with the 2nd given U.
+- allAlphas[[2]][[4]][[20]] contains only the alpha traits of genotype 20.
+and their phylogeny: 
+- allHistory[[3]][[10]][[20]] contains the mutation history of genotype 20 of population 10 evolved under the 3rd given U condition.
 
 The computational times might be very long for conditions where N*U>10.
 
